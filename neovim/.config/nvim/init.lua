@@ -34,6 +34,7 @@ require("packer").startup(function()
 
   use { "fxn/vim-monochrome" }
   use { "shaunsingh/nord.nvim" }
+
   use { "Pocco81/AutoSave.nvim" }
   use {
     "nvim-lualine/lualine.nvim",
@@ -46,12 +47,15 @@ require("packer").startup(function()
   use { "tree-sitter/tree-sitter" }
   use { "nvim-treesitter/nvim-treesitter" }
 
+  -- fzf
+  use { "junegunn/fzf" }
+  use { "junegunn/fzf.vim" }
+
   -- Telescope
   use {
     "nvim-telescope/telescope.nvim",
     requires = { {"nvim-lua/plenary.nvim"} }
   }
-  use {"nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 
   use { "voldikss/vim-translator" }
   use { "lewis6991/spellsitter.nvim" }
@@ -95,23 +99,6 @@ require("nvim-treesitter.configs").setup {
   -- }
 }
 
-require("telescope").setup {
-  extensions = {
-    fzf = {
-      fuzzy = true,                    -- false will only do exact matching
-      override_generic_sorter = true,  -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case"        -- or "ignore_case" or "respect_case"
-                                       -- the default case_mode is "smart_case"
-    },
-    fzf_native = {
-      override_generic_sorter = false,
-      override_file_sorter = true
-    }
-  }
-}
-require("telescope").load_extension("fzf")
-
 -- Set Ukrainian as a target translate language for "voldikss/vim-translator"
 vim.g.translator_target_lang="uk"
 
@@ -142,9 +129,6 @@ require("auto-save").setup {
   debounce_delay = 135 -- saves the file at most every `debounce_delay` milliseconds
 }
 
--- TODO: Look / Wait for native way
-vim.cmd [[command! -range=% FormatJSON <line1>,<line2>!jq "."]]
-
 -- Quicker window movement
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", {})
 vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", {})
@@ -155,16 +139,26 @@ vim.g.mapleader = " "
 vim.api.nvim_set_keymap("n", "<Leader><Leader>", "<C-^>", {})
 vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>e", ":e<CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>ag", ":Ag <C-R><C-W><CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>/", ":Telescope current_buffer_fuzzy_find<CR>", {})
--- Search for word under cursor in current dir using exact match
-vim.api.nvim_set_keymap("n", "<leader>*", ":Telescope grep_string word_match=-w search=<C-R><C-W><CR>", {})
-
-vim.api.nvim_set_keymap("n", "<leader>p", ":Telescope git_files<CR>", {})
-vim.api.nvim_set_keymap("n", "<C-p>", ":Telescope git_files<CR>", {})
 
 vim.api.nvim_set_keymap("n", "n", "nzz", {noremap = true})
 vim.api.nvim_set_keymap("n", "N", "Nzz", {noremap = true})
 vim.api.nvim_set_keymap("n", "*", "*zz", {noremap = true})
 vim.api.nvim_set_keymap("n", "<C-o>", "<C-o>zz", {noremap = true})
 vim.api.nvim_set_keymap("n", "<C-i>", "<C-i>zz", {noremap = true})
+
+-- FZF.vim config
+vim.api.nvim_set_keymap("n", "<C-p>", ":GFiles<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>ag", ":Ag <C-R><C-W><CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>/", ":BLines<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>*", ":BLines <C-R><C-W><CR>", {})
+
+-- Telescope config
+-- Currently is disabled in favor of fzf.vim
+vim.api.nvim_set_keymap("n", "<leader>p", ":Telescope git_files<CR>", {})
+-- vim.api.nvim_set_keymap("n", "<leader>/", ":Telescope current_buffer_fuzzy_find<CR>", {})
+-- Search for word under cursor in current dir using exact match
+-- vim.api.nvim_set_keymap("n", "<leader>*", ":Telescope grep_string word_match=-w search=<C-R><C-W><CR>", {})
+-- vim.api.nvim_set_keymap("n", "<C-p>", ":Telescope git_files<CR>", {})
+
+-- TODO: Look / Wait for native way
+vim.cmd [[command! -range=% FormatJSON <line1>,<line2>!jq "."]]
