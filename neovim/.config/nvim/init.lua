@@ -32,6 +32,7 @@ vim.opt.splitright = true
 require("packer").startup(function()
   use { "wbthomason/packer.nvim" }
 
+  -- Color schemes
   use { "fxn/vim-monochrome" }
   use { "shaunsingh/nord.nvim" }
 
@@ -62,7 +63,12 @@ require("packer").startup(function()
 
   -- EXPERIMENTING
   use { 'beauwilliams/focus.nvim' }
+  use { "phaazon/hop.nvim", branch = "v2" }
 end)
+
+require("hop").setup({
+  keys = "awersdfjiokvnucm"
+})
 
 require("focus").setup({
   number = false
