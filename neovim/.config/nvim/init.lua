@@ -58,17 +58,11 @@ require("packer").startup(function()
     requires = { {"nvim-lua/plenary.nvim"} }
   }
 
-  use { "voldikss/vim-translator" }
   use { "lewis6991/spellsitter.nvim" }
 
   -- EXPERIMENTING
-  use { 'beauwilliams/focus.nvim' }
-  use { "phaazon/hop.nvim", branch = "v2" }
+  use { "beauwilliams/focus.nvim" }
 end)
-
-require("hop").setup({
-  keys = "awersdfjiokvnucm"
-})
 
 require("focus").setup({
   number = false
@@ -110,9 +104,6 @@ require("nvim-treesitter.configs").setup {
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
-
--- Set Ukrainian as a target translate language for "voldikss/vim-translator"
-vim.g.translator_target_lang="uk"
 
 require("auto-save").setup {
   enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
