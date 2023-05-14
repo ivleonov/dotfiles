@@ -105,6 +105,12 @@ require("nvim-treesitter.configs").setup {
   -- }
 }
 
+-- treesitter based folding
+-- https://github.com/nvim-treesitter/nvim-treesitter/tree/master#folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
+
 -- Set Ukrainian as a target translate language for "voldikss/vim-translator"
 vim.g.translator_target_lang="uk"
 
