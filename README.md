@@ -39,12 +39,6 @@ cd ~/dotfiles
 stow --verbose=2 alacritty bash neovim tmux vscode
 ```
 
-### [Neo]Vim
-[packer.nvim](https://github.com/wbthomason/packer.nvim#quickstart)
-```sh
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-```
-
 ### Tmux
 [Plugin manager](https://github.com/tmux-plugins/tpm)
 ```sh

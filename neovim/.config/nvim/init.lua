@@ -29,40 +29,47 @@ vim.opt.incsearch = true -- interactive
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-require("packer").startup(function()
-  use { "wbthomason/packer.nvim" }
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-  -- Color schemes
-  use { "fxn/vim-monochrome" }
-  use { "shaunsingh/nord.nvim" }
-
-  use { "Pocco81/AutoSave.nvim" }
-  use {
+require("lazy").setup({
+  {"fxn/vim-monochrome"},
+  {"shaunsingh/nord.nvim"},
+  {"Pocco81/AutoSave.nvim"},
+  {
     "nvim-lualine/lualine.nvim",
-    requires = { "kyazdani42/nvim-web-devicons", opt = true }
-  }
-
-  use { "tpope/vim-surround" }
-  use { "tpope/vim-fugitive" }
-
-  use { "tree-sitter/tree-sitter" }
-  use { "nvim-treesitter/nvim-treesitter" }
+    dependencies = { "nvim-tree/nvim-web-devicons" }
+  },
+  { "tpope/vim-surround" },
+  { "tpope/vim-fugitive" },
+  { "tree-sitter/tree-sitter" },
+  { "nvim-treesitter/nvim-treesitter" },
 
   -- fzf
-  use { "junegunn/fzf" }
-  use { "junegunn/fzf.vim" }
+  { "junegunn/fzf" },
+  { "junegunn/fzf.vim" },
 
   -- Telescope
-  use {
+  {
     "nvim-telescope/telescope.nvim",
-    requires = { {"nvim-lua/plenary.nvim"} }
-  }
+    dependencies = { {"nvim-lua/plenary.nvim"} }
+  },
 
-  use { "lewis6991/spellsitter.nvim" }
+  { "lewis6991/spellsitter.nvim" },
 
   -- EXPERIMENTING
-  use { "beauwilliams/focus.nvim" }
-end)
+  { "beauwilliams/focus.nvim" }
+})
 
 require("focus").setup({
   number = false
