@@ -27,6 +27,7 @@ return {
   { "tpope/vim-fugitive" },
   { "tree-sitter/tree-sitter" },
   { "nvim-treesitter/nvim-treesitter" },
+  { "nvim-treesitter/nvim-treesitter-textobjects" },
 
   -- fzf
   { "junegunn/fzf" },
@@ -39,6 +40,7 @@ return {
   },
 
   -- EXPERIMENTING
+  { "lukas-reineke/indent-blankline.nvim", opts = {} },
   {
     "beauwilliams/focus.nvim",
     config = function()
