@@ -40,13 +40,5 @@ return {
   },
 
   -- EXPERIMENTING
-  { "lukas-reineke/indent-blankline.nvim", opts = {} },
-  {
-    "beauwilliams/focus.nvim",
-    config = function()
-      require("focus").setup({
-        number = false
-      })
-    end
-  }
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
 }
