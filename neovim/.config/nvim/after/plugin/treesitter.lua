@@ -1,5 +1,8 @@
 require("nvim-treesitter.configs").setup {
-    -- A list of parser names, or "all"
+  modules = {},
+  auto_install = false,
+  ignore_install = {},
+  -- A list of parser names, or "all"
   ensure_installed = { "ruby", "yaml", "lua", "javascript", "python" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -9,20 +12,10 @@ require("nvim-treesitter.configs").setup {
     enable = true,
     additional_vim_regex_highlighting = false
   },
-  indent = {
-    enable = true
-  }
-}
+  indent = { enable = true },
 
--- treesitter based folding
--- https://github.com/nvim-treesitter/nvim-treesitter/tree/master#folding
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldenable = false
-
--- treesitter based text objects
--- https://github.com/nvim-treesitter/nvim-treesitter-textobjects#text-objects-select
-require("nvim-treesitter.configs").setup {
+  -- treesitter based text objects
+  -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects#text-objects-select
   textobjects = {
     select = {
       enable = true,
@@ -49,9 +42,9 @@ require("nvim-treesitter.configs").setup {
       -- and should return the mode ('v', 'V', or '<c-v>') or a table
       -- mapping query_strings to modes.
       selection_modes = {
-        ['@parameter.outer'] = 'v', -- charwise
-        ['@function.outer'] = 'V', -- linewise
-        ['@class.outer'] = '<c-v>', -- blockwise
+        ["@parameter.outer"] = "v", -- charwise
+        ["@function.outer"] = "V", -- linewise
+        ["@class.outer"] = "<c-v>", -- blockwise
       },
       -- If you set this to `true` (default is `false`) then any textobject is
       -- extended to include preceding or succeeding whitespace. Succeeding
@@ -66,3 +59,9 @@ require("nvim-treesitter.configs").setup {
     }
   }
 }
+
+-- treesitter based folding
+-- https://github.com/nvim-treesitter/nvim-treesitter/tree/master#folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
