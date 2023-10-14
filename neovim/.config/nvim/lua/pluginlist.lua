@@ -9,7 +9,7 @@ return {
       vim.g.nord_cursorline_transparent = false
       vim.g.nord_italic = true
 
-      require("nord").set()
+      -- require("nord").set()
     end
   },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
