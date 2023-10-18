@@ -4,6 +4,12 @@ vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.spell = true
 
+-- local-highlight.nvim relies on CursorHold event which is emitted after
+-- `updatetime` ms of inactivity. Default value is 4000 (4 seconds) which makes
+-- experience with plugin a bit laggy
+-- https://github.com/tzachar/local-highlight.nvim#how-the-plugin-works
+vim.opt.updatetime = 500
+
 -- highlight search result
 vim.opt.hlsearch = true
 vim.opt.colorcolumn = "81,101,121"
