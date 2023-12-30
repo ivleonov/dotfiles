@@ -38,6 +38,7 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+  pylsp = {},
   gopls = {}
 }
 
