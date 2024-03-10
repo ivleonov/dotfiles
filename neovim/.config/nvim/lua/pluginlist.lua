@@ -71,7 +71,6 @@ return {
   },
 
   -- EXPERIMENTING
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   {
     "tzachar/local-highlight.nvim",
     config = function()
