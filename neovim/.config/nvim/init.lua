@@ -16,8 +16,8 @@ vim.opt.colorcolumn = "81,101,121"
 vim.opt.cursorline = true
 
 -- Render Whitespaces
-vim.opt.listchars="eol:↵,space:·,trail:~,tab:>-,nbsp:␣"
-vim.opt.list = true
+-- vim.opt.listchars="eol:↵,space:·,trail:~,tab:>-,nbsp:␣"
+-- vim.opt.list = true
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
