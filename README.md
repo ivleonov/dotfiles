@@ -13,7 +13,7 @@ sudo dnf install -y alacritty bat curl fzf git tig htop jq make mc neovim nodejs
 
 ### Install flatpak applications
 ```sh
-flatpak install -y com.bitwarden.desktop com.todoist.Todoist io.typora.Typora md.obsidian.Obsidian org.telegram.desktop us.zoom.Zoom
+flatpak install -y com.bitwarden.desktop com.todoist.Todoist md.obsidian.Obsidian us.zoom.Zoom
 ```
 
 ### Installing plugins for playing movies and music
@@ -38,7 +38,7 @@ sudo dnf group upgrade --with-optional Multimedia
 ```sh
 git clone git@github.com:ivleonov/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-stow --verbose=2 alacritty bash neovim tmux vscode
+stow --verbose=2 alacritty bash neovim tmux
 ```
 
 ### Tmux
