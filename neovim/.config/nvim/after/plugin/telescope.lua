@@ -6,6 +6,10 @@ local nmap = function(keys, func, desc)
   vim.keymap.set("n", keys, func, { desc = desc })
 end
 
+local search_in_obsidian = function()
+  require("telescope.builtin").find_files({cwd="$SECOND_BRAIN_DIR"})
+end
+
 local builtin = require("telescope.builtin")
 
 nmap("<leader>gf", builtin.git_files, "Search [G]it [F]iles")
@@ -19,6 +23,7 @@ nmap("<leader>sd", builtin.diagnostics, "[S]earch [D]iagnostics")
 nmap("<leader>sr", builtin.resume, "[S]earch [R]esume")
 nmap("<leader>sb", builtin.buffers, "[S]earch existing [B]uffers")
 nmap("<leader>sj", builtin.jumplist, "[S]earch in [J]umplist")
+nmap("<leader>so", search_in_obsidian, "[S]earch in [O]bsidian")
 nmap("<leader>?", builtin.oldfiles, "[?] Find recently opened files")
 nmap("<leader>/", builtin.current_buffer_fuzzy_find, "[/] Fuzzily search in current buffer")
 
