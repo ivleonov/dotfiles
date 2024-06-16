@@ -53,3 +53,10 @@ export EDITOR=nvim
 function rcheat {
   curl "cheat.sh/ruby/$(echo $@ | tr ' ' '+')"
 }
+
+# aliases
+# Runs nvim based on lazyvim config placed in ~/.config/lazyvim/
+alias lvim="NVIM_APPNAME=lazyvim nvim"
+
+export SECOND_BRAIN_DIR="$HOME/Documents/Obsidian"
+alias oo='nvim -c "cd $SECOND_BRAIN_DIR" -c "Telescope find_files"'
