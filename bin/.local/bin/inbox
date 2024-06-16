@@ -1,0 +1,76 @@
+#!/bin/bash
+
+# This script creates notes with a template structure in a designated directory,
+# and optionally open them in NeoVim.
+# The main purpose of this script is to reduce friction for creating new notes.
+# In case of not using -s option note will be automatically opened in NeoVim and
+# current directory of NeoVim will be set to SECOND_BRAIN_DIR, so it is possible
+# to jump between notes using Telescope of other NeoVim navigation solution
+#
+# Usage:
+#   inbox [-s] "note title"
+#
+# Options:
+#   -s    Silently create the note WITHOUT opening it in NeoVim.
+#
+# Environment Variables:
+#   SECOND_BRAIN_DIR  Directory where notes are stored
+#
+# Example:
+#   inbox My new note
+#   inbox -s Another note
+#
+# Note:
+#   If SECOND_BRAIN_DIR is not set or the note already
+#   exists, an error message will be displayed.
+
+RED_COLOR='\033[0;31m'
+NO_COLOR='\033[0m'
+
+# Function to create a file with a template structure
+create_file_with_template() {
+  local input_text="$1"
+  local date_str=$(date +'%Y-%m-%d')
+  local sanitized_text=$(echo "$input_text" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+  local filename="${date_str}_${sanitized_text}.md"
+  local filepath="$SECOND_BRAIN_DIR/Inbox/$filename"
+  local title=$(echo "$input_text" | sed 's/.*/\u&/')
+
+  # TODO: Consider templating with separate tool like erb or similar
+  local template="---\ndate: $date_str\n---\n\n# $title\n"
+
+  if [ -z "$SECOND_BRAIN_DIR" ]; then
+    echo -e "${RED}Error:${NC} SECOND_BRAIN_DIR variable is not set"
+    exit 1
+  fi
+
+  # Check if the file already exists
+  if [ -e "$filepath" ]; then
+    echo -e "${RED_COLOR}Error: File \"$filepath\" already exists${NO_COLOR}"
+    exit 1
+  fi
+
+  echo -e "$template" > "$filepath"
+
+  # NOTE: If the -s option is not provided, open the file in NeoVim
+  if [ "$SILENT" != "true" ]; then
+    nvim -c "cd $SECOND_BRAIN_DIR" -c "normal G" "$filepath"
+  else
+    echo "Note \"$filename\" has been created"
+  fi
+}
+
+# Check the command passed to the script
+if [ "$1" == "-s" ]; then
+  # Set the silent mode flag
+  SILENT="true"
+  shift
+fi
+
+# Check if the first argument is not empty and not equal to "-s"
+if [ -n "$1" ]; then
+  create_file_with_template "$*"
+else
+  echo -e "${RED_COLOR}Usage: inbox [-s] \"note title\"${NO_COLOR}"
+  exit 1
+fi
