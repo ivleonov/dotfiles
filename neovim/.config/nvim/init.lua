@@ -54,6 +54,7 @@ vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", {})
 
 vim.api.nvim_set_keymap("n", "<Leader><Leader>", "<C-^>", {})
 vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>e", ":Ex<CR>", {})
 
 vim.api.nvim_set_keymap("n", "n", "nzz", {noremap = true})
 vim.api.nvim_set_keymap("n", "N", "Nzz", {noremap = true})
