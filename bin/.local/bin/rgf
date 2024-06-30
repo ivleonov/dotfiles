@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# ripgrep + fzf integration
+# https://github.com/junegunn/fzf/blob/8db65704b9491bc9e3015f9568df79f0930c85ca/ADVANCED.md#ripgrep-integration
+# The name 
+#
+# The flow:
+# 1. Search for text in files using Ripgrep
+# 2. Interactively narrow down the list using fzf
+# 3. Open the file in NeoVim (on a specific line and center the screen)
+rg --color=always --line-number --hidden --no-heading --smart-case "${*:-}" |
+  fzf --ansi \
+      --color "hl:-1:underline,hl+:-1:underline:reverse" \
+      --delimiter : \
+      --preview 'bat --color=always {1} --highlight-line {2}' \
+      --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
+      --bind 'enter:become(nvim {1} +{2} -c "normal! zz")'
