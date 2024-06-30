@@ -2,7 +2,6 @@
 
 # ripgrep + fzf integration
 # https://github.com/junegunn/fzf/blob/8db65704b9491bc9e3015f9568df79f0930c85ca/ADVANCED.md#ripgrep-integration
-# The name 
 #
 # The flow:
 # 1. Search for text in files using Ripgrep
