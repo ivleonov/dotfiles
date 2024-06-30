@@ -60,3 +60,7 @@ alias lvim="NVIM_APPNAME=lazyvim nvim"
 
 export SECOND_BRAIN_DIR="$HOME/Documents/Obsidian"
 alias oo='nvim -c "cd $SECOND_BRAIN_DIR" -c "Telescope find_files"'
+
+# Setting up fzf integration
+# https://github.com/junegunn/fzf/blob/8db65704b9491bc9e3015f9568df79f0930c85ca/README.md#setting-up-shell-integration
+eval "$(fzf --bash)"
