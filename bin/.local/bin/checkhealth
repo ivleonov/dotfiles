@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Function to print messages in color
+print_in_color() {
+  local status="$1"
+  local message="$2"
+  local color_code
+  local status_prefix
+
+  case "$status" in
+    OK)
+      status_prefix="\033[1m\033[32mOK\033[0m" # GREEN
+      ;;
+    WARNING)
+      status_prefix="\033[1m\033[33mWARNING\033[0m" # YELLOW
+      ;;
+    ERROR)
+      status_prefix="\033[1m\033[31mERROR\033[0m" # RED
+      ;;
+  esac
+
+  echo -e "${status_prefix} \033[0m${message}"
+}
+
+# Check if SECOND_BRAIN_DIR environment variable is set
+if [ -z "$SECOND_BRAIN_DIR" ]; then
+  print_in_color "WARNING" "\$SECOND_BRAIN_DIR is not set."
+else
+  # Check if the directory exists
+  if [ -d "$SECOND_BRAIN_DIR" ]; then
+    print_in_color "OK" "\$SECOND_BRAIN_DIR is set to $SECOND_BRAIN_DIR"
+  else
+    print_in_color "WARNING" "\$SECOND_BRAIN_DIR points to a non-existent directory."
+  fi
+fi
