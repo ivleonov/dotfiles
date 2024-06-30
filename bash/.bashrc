@@ -54,6 +54,10 @@ function rcheat {
   curl "cheat.sh/ruby/$(echo $@ | tr ' ' '+')"
 }
 
+if [ -d /usr/local/go/bin ]; then
+  export PATH=$PATH:/usr/local/go/bin
+fi
+
 # aliases
 # Runs nvim based on lazyvim config placed in ~/.config/lazyvim/
 alias lvim="NVIM_APPNAME=lazyvim nvim"
