@@ -60,18 +60,18 @@ TERM = "xterm-256color"
 size = 26
 
 [font.bold]
-family = "UbuntuMono Nerd Font"
+family = "Hack Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "UbuntuMono Nerd Font"
+family = "Hack Nerd Font Mono"
 
 [font.italic]
-family = "UbuntuMono Nerd Font"
+family = "Hack Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "UbuntuMono Nerd Font"
+family = "Hack Nerd Font Mono"
 style = "Regular"
 
 [[keyboard.bindings]]
@@ -140,7 +140,7 @@ key = "NumpadSubtract"
 mods = "Control"
 
 [window]
-decorations = "none"
+decorations = "full"
 opacity = 1
 
 [window.dimensions]
