@@ -31,7 +31,7 @@ end
 
 local servers = {
   standardrb = {},
-  ruby_ls = {},
+  ruby_lsp = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
