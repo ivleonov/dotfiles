@@ -31,14 +31,14 @@ sudo dnf group upgrade --with-optional Multimedia
 ### Font
 [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 
-#### Another options:
+#### Other options:
 [Hack](https://sourcefoundry.org/hack/)
 
 ### Clone and configure links
 ```sh
 git clone git@github.com:ivleonov/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-stow --verbose=2 alacritty bash neovim tmux
+stow --verbose=2 alacritty bash bin neovim tmux
 ```
 
 ### Tmux
