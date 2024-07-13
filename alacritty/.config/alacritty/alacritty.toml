@@ -37,10 +37,6 @@ background = "#2e3440"
 dim_foreground = "#a5abb6"
 foreground = "#d8dee9"
 
-# [colors.search.footer_bar]
-# background = "#434c5e"
-# foreground = "#d8dee9"
-
 [colors.search.matches]
 background = "#88c0d0"
 foreground = "CellBackground"
@@ -57,21 +53,21 @@ text = "#2e3440"
 TERM = "xterm-256color"
 
 [font]
-size = 26
+size = 14
 
 [font.bold]
-family = "Hack Nerd Font Mono"
+family = "Cascadia Code NF"
 style = "Bold"
 
 [font.bold_italic]
-family = "Hack Nerd Font Mono"
+family = "Cascadia Code NF"
 
 [font.italic]
-family = "Hack Nerd Font Mono"
+family = "Cascadia Code NF"
 style = "Italic"
 
 [font.normal]
-family = "Hack Nerd Font Mono"
+family = "Cascadia Code NF"
 style = "Regular"
 
 [[keyboard.bindings]]
