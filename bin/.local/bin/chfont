@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Get the font family selected through fzf
+selected_font=$(fc-list --format='%{family}\n' | cut -d':' -f2 | awk -F ', ' '{print $1}' | sort -u | fzf --prompt="Select a font: ")
+
+# Check if a font was selected
+if [ -n "$selected_font" ]; then
+  # Update the Alacritty configuration file with the selected_font font family
+  sed --in-place "s/family = .*/family = \"$selected_font\"/" ~/dotfiles/alacritty/.config/alacritty/alacritty.toml
+  echo "Font family updated to: $selected_font"
+else
+  echo "No font selected"
+fi
