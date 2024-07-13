@@ -67,6 +67,13 @@ vim.cmd [[command! -range=% FormatJSON <line1>,<line2>!jq "."]]
 
 require "plugins"
 
+-- Highlight trailing whitespaces ----------------------------------------------
+vim.api.nvim_command("highlight RedundantSpaces ctermbg=red guibg=red")
+vim.api.nvim_command("autocmd InsertEnter * :match RedundantSpaces //")
+vim.api.nvim_command("autocmd InsertLeave * :match RedundantSpaces /\\s\\+$/")
+vim.api.nvim_command(":match RedundantSpaces /\\s\\+$/")
+-- END OF Highlight trailing whitespaces ---------------------------------------
+
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
