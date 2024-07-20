@@ -120,5 +120,6 @@ return {
     config = function()
       require("local-highlight").setup()
     end
-  }
+  },
+  { "github/copilot.vim" }
 }
