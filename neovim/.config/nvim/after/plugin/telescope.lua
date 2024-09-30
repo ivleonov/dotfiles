@@ -1,3 +1,21 @@
+require("telescope").setup({
+  defaults = {
+    mappings = {
+      n = {
+        -- Deleting buffer when in buffer explorer
+        -- Not sure about ergonomic of this one yet
+        ["d"] = require("telescope.actions").delete_buffer,
+        -- Quite telescope with "q"
+        ["q"] = require("telescope.actions").close,
+      },
+      i = {
+        ["<C-j>"] = require("telescope.actions").move_selection_next,
+        ["<C-k>"] = require("telescope.actions").move_selection_previous,
+      },
+    }
+  }
+})
+
 local nmap = function(keys, func, desc)
   if desc then
     desc = "Telescope: " .. desc
@@ -43,6 +61,21 @@ nmap("<leader>sj", builtin.jumplist, "[S]earch in [J]umplist")
 nmap("<leader>so", search_in_obsidian, "[S]earch in [O]bsidian")
 nmap("<leader>?", builtin.oldfiles, "[?] Find recently opened files")
 nmap("<leader>/", current_buffer_fuzzy_find, "[/] Fuzzily search in current buffer")
+
+local buffers = function()
+  builtin.buffers(
+    {
+      -- start with normal mode, as it looks reasonable
+      -- flow not to start fzf, but navigate through buffers
+      initial_mode = "normal",
+      sort_mru = true, -- Sort by most recently used
+    }
+  )
+end
+
+-- This is not usual keybinding (usually it would be leader + b for [b]uffers),
+-- but it doesn't feel ergonomic enough, so experimenting with alternative.
+nmap("<leader>j", buffers, "Telescope Buffers")
 
 -- Enable telescope fzf native, if installed
 pcall(require("telescope").load_extension, "fzf")
