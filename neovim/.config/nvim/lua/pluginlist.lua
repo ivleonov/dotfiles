@@ -9,10 +9,17 @@ return {
       vim.g.nord_cursorline_transparent = false
       vim.g.nord_italic = true
 
-      require("nord").set()
+      -- require("nord").set()
     end
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme "catppuccin-mocha"
+    end
+  },
   { "folke/tokyonight.nvim", priority = 1000 },
   { "fxn/vim-monochrome" },
   { "Pocco81/AutoSave.nvim" },
