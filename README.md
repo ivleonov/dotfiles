@@ -1,7 +1,7 @@
 ## Install
 ### Requirements
 ```sh
-sudo dnf install -y alacritty bat curl fzf git tig htop jq make mc neovim nodejs openssl-devel zlib-devel perl-App-cpanminus the_silver_searcher tmux stow fd-find tree-sitter-cli httpie libyaml-devel
+sudo dnf install -y alacritty bat curl fzf git tig htop jq make mc neovim nodejs openssl-devel zlib-devel perl-App-cpanminus the_silver_searcher tmux stow fd-find tree-sitter-cli httpie libyaml-devel cascadia-fonts-all source-foundry-hack-fonts
 ```
 
 ### Other Software
@@ -13,7 +13,7 @@ sudo dnf install -y alacritty bat curl fzf git tig htop jq make mc neovim nodejs
 
 ### Install flatpak applications
 ```sh
-flatpak install -y com.bitwarden.desktop com.todoist.Todoist md.obsidian.Obsidian us.zoom.Zoom
+flatpak install -y com.bitwarden.desktop com.todoist.Todoist md.obsidian.Obsidian us.zoom.Zoom org.signal.Signal
 ```
 
 ### Installing plugins for playing movies and music
