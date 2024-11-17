@@ -121,6 +121,5 @@ return {
       require("local-highlight").setup()
     end
   },
-  { "lewis6991/gitsigns.nvim" },
-  { "github/copilot.vim" }
+  { "lewis6991/gitsigns.nvim" }
 }
