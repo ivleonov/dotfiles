@@ -121,5 +121,6 @@ return {
       require("local-highlight").setup()
     end
   },
-  { "lewis6991/gitsigns.nvim" }
+  { "lewis6991/gitsigns.nvim" },
+  { "MeanderingProgrammer/render-markdown.nvim" }
 }
