@@ -1,5 +1,5 @@
 general.import = [
-  "~/dotfiles/alacritty/.config/alacritty/colors/nord.toml" # color scheme
+  "~/dotfiles/alacritty/.config/alacritty/colors/catppuccin-mocha.toml" # color scheme
 ]
 
 [env]
