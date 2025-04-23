@@ -1,3 +1,20 @@
+-- Configure virtual lines for diagnostics
+local virtual_lines_enabled = false
+
+local function toggle_virtual_lines()
+  virtual_lines_enabled = not virtual_lines_enabled
+  vim.diagnostic.config({
+    virtual_lines = virtual_lines_enabled,
+    virtual_text = not virtual_lines_enabled,
+  })
+end
+
+-- Set initial configuration to show diagnostics inline
+vim.diagnostic.config({
+  virtual_lines = false,
+  virtual_text = true,
+})
+
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
     if desc then
@@ -14,7 +31,7 @@ local on_attach = function(_, bufnr)
   nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
   nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
   nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
-  nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+  nmap("<leader>ds", toggle_virtual_lines, "Toggle [D]iagnostic [S]tyle")
   nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
   nmap("K", vim.lsp.buf.hover, "Hover Documentation")
   nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
