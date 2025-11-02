@@ -4,6 +4,14 @@ vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.spell = true
 
+-- Enable virtual lines for diagnostic messages
+vim.diagnostic.config({
+  virtual_lines = false,
+
+  -- Disable inline virtual text since we're using virtual lines
+  virtual_text = true,
+})
+
 -- local-highlight.nvim relies on CursorHold event which is emitted after
 -- `updatetime` ms of inactivity. Default value is 4000 (4 seconds) which makes
 -- experience with plugin a bit laggy
@@ -12,7 +20,7 @@ vim.opt.updatetime = 500
 
 -- highlight search result
 vim.opt.hlsearch = true
-vim.opt.colorcolumn = "81,101,121"
+-- vim.opt.colorcolumn = "81,101,121"
 vim.opt.cursorline = true
 
 -- Render Whitespaces
