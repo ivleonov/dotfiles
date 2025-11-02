@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Jump to the type of the word under your cursor.
     --  Useful when you're not sure what type a variable is and you want to see
     --  the definition of its *type*, not where it was *defined*.
-    map('gt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
+    -- map('gt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
     -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
     ---@param client vim.lsp.Client
@@ -156,6 +156,8 @@ local servers = {
   -- },
   pylsp = {},
   gopls = {},
+  protols = {},
+  protolint = {},
 
   lua_ls = {
     -- cmd = { ... },
