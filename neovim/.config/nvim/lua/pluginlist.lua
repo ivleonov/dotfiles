@@ -141,6 +141,5 @@ return {
       )
     end
   },
-  { "lewis6991/gitsigns.nvim" },
-  { "MeanderingProgrammer/render-markdown.nvim" }
+  { "lewis6991/gitsigns.nvim" }
 }
