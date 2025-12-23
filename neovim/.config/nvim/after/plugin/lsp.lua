@@ -155,7 +155,13 @@ local servers = {
   --   },
   -- },
   pylsp = {},
-  gopls = {},
+  gopls = {
+    settings = {
+      gopls = {
+        buildFlags = { "-tags=integration" },
+      },
+    },
+  },
   protols = {},
   protolint = {},
 
