@@ -24,6 +24,8 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- treesitter based folding
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldenable = false
+-- https://github.com/nvim-treesitter/nvim-treesitter/tree/master#folding
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- vim.opt.foldenable = false
