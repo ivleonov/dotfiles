@@ -1,5 +1,6 @@
 -- This config was taken from brilliant kickstart-nvim
 -- https://github.com/nvim-lua/kickstart.nvim
+
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
   callback = function(event)
@@ -156,10 +157,12 @@ local servers = {
   --   },
   -- },
   pylsp = {},
+
   gopls = {
+    cmd_env = { GOFLAGS = "-tags=goexperiment.jsonv2,integration,integration_test,functional,load,template,unit_test" },
     settings = {
       gopls = {
-        buildFlags = { "-tags=integration" },
+        buildFlags = { "-tags=goexperiment.jsonv2,integration,integration_test,functional,load,template,unit_test" },
       },
     },
   },
@@ -167,18 +170,22 @@ local servers = {
   protolint = {},
 
   lua_ls = {
-    -- cmd = { ... },
-    -- filetypes = { ... },
-    -- capabilities = {},
     settings = {
       Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
+        runtime = {
+          version = 'LuaJIT',
+        },
+        diagnostics = {
+          globals = { 'vim' },
+        },
+        workspace = {
+          library = vim.api.nvim_get_runtime_file('lua', true),
+          checkThirdParty = false,
+        },
+        telemetry = { enable = false },
         completion = {
           callSnippet = 'Replace',
         },
-        -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-        -- diagnostics = { disable = { 'missing-fields' } },
       },
     },
   },

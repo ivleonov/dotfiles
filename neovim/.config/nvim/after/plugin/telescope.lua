@@ -13,6 +13,9 @@ require("telescope").setup({
         ["<C-k>"] = require("telescope.actions").move_selection_previous,
       },
     }
+  },
+  extensions = {
+    fzf = {}
   }
 })
 
@@ -78,4 +81,4 @@ end
 nmap("<leader>j", buffers, "Telescope Buffers")
 
 -- Enable telescope fzf native, if installed
-pcall(require("telescope").load_extension, "fzf")
+require("telescope").load_extension("fzf")
