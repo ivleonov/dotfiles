@@ -24,11 +24,29 @@ return {
         }
       })
 
-      vim.cmd.colorscheme("catppuccin-mocha")
+      -- vim.cmd.colorscheme("catppuccin-mocha")
     end,
   },
-  { "folke/tokyonight.nvim", priority = 1000 },
+  {
+    "folke/tokyonight.nvim",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      -- vim.cmd.colorscheme("tokyonight-day")
+    end
+  },
   { "fxn/vim-monochrome" },
+  {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require("kanagawa").setup({
+        compile = true,
+        commentStyle = { italic = true }
+      })
+
+      vim.cmd.colorscheme("kanagawa-dragon")
+    end
+  },
   { "Pocco81/AutoSave.nvim" },
   {
     "nvim-lualine/lualine.nvim",
@@ -84,6 +102,13 @@ return {
       {
         'saghen/blink.cmp',
         dependencies = { 'saghen/blink.lib' },
+      },
+
+      -- Enhanced Neovim Lua API support for lua_ls
+      {
+        'folke/lazydev.nvim',
+        opts = {
+        }
       },
     }
   },
