@@ -1,0 +1,26 @@
+# Ghostty config, ported from alacritty/.config/alacritty/alacritty.toml
+
+theme = Kanagawa Dragon
+
+font-family = Cascadia Code NF
+font-family-bold = Cascadia Code NF
+font-family-italic = Cascadia Code NF
+font-family-bold-italic = Cascadia Code NF
+font-size = 14
+
+window-decoration = none
+background-opacity = 1
+window-width = 200
+window-height = 50
+window-padding-x = 5
+window-padding-y = 5
+
+# Most keybindings from the alacritty config are Ghostty defaults already:
+# Ctrl+Shift+C/V copy/paste, Ctrl+Shift+F search, Ctrl+0/+/- font size,
+# Shift+Insert paste selection. F11 fullscreen is not a default, so it's
+# added below alongside the alacritty default Ctrl+Enter.
+#
+# Not ported: Ctrl+Shift+B (search backward) and the numpad +/- font-size
+# bindings have no direct Ghostty equivalent; Ctrl+Shift+C-in-vi-mode
+# (clear selection) doesn't apply since Ghostty has no matching vi mode.
+keybind = f11=toggle_fullscreen

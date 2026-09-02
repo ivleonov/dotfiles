@@ -1,7 +1,7 @@
 ## Install
 ### Requirements
 ```sh
-sudo dnf install -y alacritty bat curl fzf git tig htop jq make mc neovim nodejs openssl-devel zlib-devel perl-App-cpanminus the_silver_searcher tmux stow fd-find tree-sitter-cli httpie libyaml-devel cascadia-fonts-all source-foundry-hack-fonts
+sudo dnf install -y alacritty ghostty bat curl fzf git tig htop jq make mc neovim nodejs openssl-devel zlib-devel perl-App-cpanminus the_silver_searcher tmux stow fd-find tree-sitter-cli httpie libyaml-devel cascadia-fonts-all source-foundry-hack-fonts
 ```
 
 ### Other Software
@@ -38,7 +38,7 @@ sudo dnf group upgrade --with-optional Multimedia
 ```sh
 git clone git@github.com:ivleonov/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-stow --verbose=2 alacritty bash bin neovim tmux
+stow --verbose=2 alacritty ghostty bash bin neovim tmux
 ```
 
 ### Tmux
